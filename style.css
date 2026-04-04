@@ -7,6 +7,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #111;
 }
 
 .hero {
@@ -120,11 +121,13 @@ header {
 
 .presentation h1 {
     font-size: 60px;
+    animation: fadeInUp 1s ease forwards;
 }
 
 .presentation h2 {
     font-size: 25px;
     margin-top: 30px;
+    animation: fadeInUp 1.2s ease forwards;
 }
 
 .logo {
@@ -132,6 +135,7 @@ header {
 	width: 100%;
 	display: inline-block;
 	vertical-align: middle;
+    animation: fadeInUp 2s ease forwards;
 }
 
 .logo img {
@@ -186,6 +190,7 @@ main::before {
 .cards:hover {
     transform: scale(1.05);
     box-shadow: 0 0 120px rgb(53, 53, 53);
+    animation: fadeInUpCards 1s ease forwards;
 }
 
 .cards h2,
@@ -258,4 +263,26 @@ footer p {
   font-size: 14px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpCards {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
 }
