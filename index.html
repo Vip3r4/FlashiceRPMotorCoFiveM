@@ -24,6 +24,7 @@
             <div class="presentation">
                 <h1>Flashice ・ Motor Co.</h1>
                 <h2>L'excellence automobile de FlashiceRP.</h2>
+                <button onclick="scrollToText()" class="btn">Rejoindre maintenant</button>
                 <div class="logo">
                     <img src="logoflashice.png" alt="logo flashicerp">
                 </div>
@@ -32,6 +33,8 @@
         </header>
     </div>
     <main>
+        <hr>
+        <h2 id="go">Nous rejoindre</h2>
         <div class="cards-container">
             <div class="cards">
                 <i class="fa-brands fa-discord fa-4x"></i>
@@ -49,9 +52,43 @@
                 <button><a href="#">Cliquez ici</a></button>
             </div>       
         </div>
+        <hr>
+        <h2 id="go">Nos meilleures ventes</h2>
+        <div class="cards-container2">
+            <div class="cards2">
+                <div class="progenimg">
+                    <img src="Progen_Emerus_Vue_devant_GTA_Online.webp" alt="progen">
+                </div>
+                <h2 >Progen Emerus</h2>
+                <p>$2,750,000</p>
+                <button><a href="#">Acheter</a></button>
+            </div>
+            <div class="cards2" id="best">
+                <div class="neroimg">
+                    <img src="Nero_Custom_vue_devant.webp" alt="nero">
+                </div>
+                <h2>Nero Custom</h2>
+                <p>$605,000</p>
+                <button><a href="#">Acheter</a></button>
+            </div>
+            <div class="cards2">
+                <div class="turismoimg">
+                    <img src="TurismoR-GTAVee-FrontQuarter.webp" alt="turismo">
+                </div>
+                <h2>Turismo R</h2>
+                <p>$500,000</p>
+                <button><a href="#">Acheter</a></button>
+            </div>       
+        </div>
+        <hr>
     </main>
     <footer>
-        © 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r
+        <p>© 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r</p>
     </footer>
+    <script>
+        function scrollToText() {
+            document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
