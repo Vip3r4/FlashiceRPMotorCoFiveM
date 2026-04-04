@@ -35,7 +35,7 @@
     <main>
         <hr>
         <h2 id="go">Nous rejoindre</h2>
-        <div class="cards-container">
+        <div class="cards-container fade-up">
             <div class="cards">
                 <i class="fa-brands fa-discord fa-4x"></i>
                 <h2 >Rejoignez Flashice RP sur Discord</h2>
@@ -54,7 +54,7 @@
         </div>
         <hr>
         <h2 id="go">Nos meilleures ventes</h2>
-        <div class="cards-container2">
+        <div class="cards-container2 fade-up">
             <div class="cards2">
                 <div class="progenimg">
                     <img src="Progen_Emerus_Vue_devant_GTA_Online.webp" alt="progen">
@@ -89,6 +89,20 @@
         function scrollToText() {
             document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
         }
+    </script>
+    <script>
+        const elements = document.querySelectorAll('.fade-up');
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+            }
+        });
+        }, { threshold: 0.2 });
+
+        elements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
