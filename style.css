@@ -308,6 +308,16 @@ main h2 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.952);
 }
 
+.cards2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 120px rgb(53, 53, 53);
+}
+
+#best:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 120px rgb(53, 53, 53);
+}
+
 .cards2 h2,
 .cards2 button {
     position: relative;
