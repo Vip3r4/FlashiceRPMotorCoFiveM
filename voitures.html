@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-voiture.css">
+    <title>Motor Co. Flashice RP - Nos Voitures</title>
+    <link rel="icon" href="/images/logoflashice.png">
+    <script src="https://kit.fontawesome.com/6ce492d5d4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hero">
+        <header>
+            <nav>
+                <ul>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="voitures.html">Nos Voitures</a></li>
+                    <li class="title">⎯⎯⎯⎯ Motor Co. ⎯⎯⎯⎯</li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                </ul>
+            </nav>
+
+            <div class="presentation">
+                <h1>Nos Voitures</h1>
+                <h2>Retrouvez ici notre catalogue de véhicules présents à la vente</h2>
+                <button onclick="scrollToText()" class="btn">Consulter</button>
+                <div class="logo">
+                    <img src="/images/logoflashice.png" alt="logo flashicerp">
+                </div>
+            </div>
+            
+        </header>
+    </div>
+    <main>
+        <div class="catalog-container">
+            <div class="filter-section">
+                <input type="text" id="searchInput" placeholder="Rechercher un modèle...">
+                
+                <div class="checkbox-group" id="go">
+                    <label><input type="checkbox" class="category-check" value="Compact"> Compact</label>
+                    <label><input type="checkbox" class="category-check" value="Off-Road"> Off-Road</label>
+                    <label><input type="checkbox" class="category-check" value="Sedan"> Sedan</label>
+                    <label><input type="checkbox" class="category-check" value="Sport"> Sport</label>
+                    <label><input type="checkbox" class="category-check" value="Super-Car"> Super-Car</label>
+                    <label><input type="checkbox" class="category-check" value="SUV"> SUV</label>
+                    <label><input type="checkbox" class="category-check" value="Utile"> Utile</label>
+                </div>
+
+                <select id="priceSort">
+                    <option value="default">Prix (Tri)</option>
+                    <option value="asc">Croissant</option>
+                    <option value="desc">Décroissant</option>
+                </select>
+            </div>
+
+            <div id="carGrid" class="cards-container2"></div>
+
+            <div class="pagination">
+                <button id="prevPage" class="btn-pagination">Précédent</button>
+                <span id="pageInfo">Page 1</span>
+                <button id="nextPage" class="btn-pagination">Suivant</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r</p>
+    </footer>
+    <script src="catalogue.js"></script>
+    <script>
+        function scrollToText() {
+            document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

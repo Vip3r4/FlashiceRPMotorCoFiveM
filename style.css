@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    cursor: url("cursor.png"), pointer;
+    cursor: url("/images/cursor.png"), pointer;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 .hero {
-    background-image: url("background.jpg");
+    background-image: url("/images/background.jpg");
 }
 
 nav {
@@ -285,6 +285,16 @@ main h2 {
     margin-top: 70px;
     z-index: 2;
     color: white;
+}
+
+.cards p {
+    text-align: center;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    padding-left : 15px;
+    padding-right : 15px;
 }
 
 /* Cartes voitures */
