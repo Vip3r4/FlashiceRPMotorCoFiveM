@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-apropos.css">
+    <title>Motor Co. Flashice RP - À Propos</title>
+    <link rel="icon" href="/images/logoflashice.png">
+    <script src="https://kit.fontawesome.com/6ce492d5d4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hero">
+        <header>
+            <nav>
+                <ul>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="voitures.html">Nos Voitures</a></li>
+                    <li class="title">⎯⎯⎯⎯ Motor Co. ⎯⎯⎯⎯</li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                </ul>
+            </nav>
+
+            <div class="presentation">
+                <h1>À Propos</h1>
+                <h2>‒‒‒‒‒‒‒‒‒‒‒‒‒</h2>
+                <button onclick="scrollToText()" class="btn">En savoir plus</button>
+                <div class="logo">
+                    <img src="/images/logoflashice.png" alt="logo flashicerp">
+                </div>
+            </div>
+            
+        </header>
+    </div>
+    <main id="go">
+        <section class="about-container">
+            <div class="about-block fade-up">
+                <div class="about-text">
+                    <h2>Notre Histoire</h2>
+                    <p>Fondée sur les principes de passion et de performance, Motor Co. s'est imposée comme le leader de l'automobile de luxe sur Flashice RP. Depuis nos débuts, nous sélectionnons uniquement les imports les plus prestigieux pour garantir une expérience de conduite inégalée à nos clients.</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="cards-container fade-up">
+                <div class="cards">
+                    <i class="fa-solid fa-gem fa-3x"></i>
+                    <h2>Exclusivité</h2>
+                    <p>Nous possédons des modèles uniques en ville, importés directement pour les citoyens les plus exigeants.</p>
+                </div>
+                <div class="cards">
+                    <i class="fa-solid fa-handshake-angle fa-3x"></i>
+                    <h2>Confiance</h2>
+                    <p>Chaque vente est accompagnée d'un suivi personnalisé et d'un contrat transparent pour votre sécurité.</p>
+                </div>
+                <div class="cards">
+                    <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
+                    <h2>Expertise</h2>
+                    <p>Nos mécaniciens vérifient chaque véhicule avant la mise en rayon pour assurer une fiabilité totale.</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2 class="fade-up" style="text-align: center; font-size: 40px; font-family: 'Inter', sans-serif; color: white; ">L'Équipe Dirigeante</h2>
+            <div class="cards-container fade-up" style="gap: 50px;">
+                <div class="member-card">
+                    <div class="member-circle"></div> <h3>Vip3r</h3>
+                    <p>Directeur Général</p>
+                </div>
+                <div class="member-card">
+                    <div class="member-circle"></div>
+                    <h3>Nom du Staff</h3>
+                    <p>Responsable Ventes</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <section class="stats-section fade-up">
+                <h2 class="stats-title">Nos chiffres</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-car-side"></i></div>
+                        <h2 class="stat-number">+<span class="count" data-target="500">0</span></h2>
+                        <p class="stat-label">Ventes réalisées</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                        <h2 class="stat-number"><span class="count" data-target="100">0</span>%</h2>
+                        <p class="stat-label">Clients satisfaits</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+                        <h2 class="stat-number"><span class="count" data-target="24">0</span>/7</h2>
+                        <p class="stat-label">Service technique</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-ship"></i></div>
+                        <h2 class="stat-number">+<span class="count" data-target="150">0</span></h2>
+                        <p class="stat-label">Modèles importés</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r</p>
+    </footer>
+    <script>
+        const elements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+
+        function scrollToText() {
+            document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    <script src="chiffresanimation.js"></script>
+</body>
+</html>

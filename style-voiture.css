@@ -130,21 +130,6 @@ header {
     animation: fadeInUp 1.2s ease forwards;
 }
 
-.logo {
-	text-align: center;
-	width: 100%;
-	display: inline-block;
-	vertical-align: middle;
-    animation: fadeInUp 2s ease forwards;
-}
-
-.logo img {
-	width: 300px;
-	margin-top: 30px;
-    border: 4px solid white;
-    border-radius: 60px;
-}
-
 main {
     position: relative;
     z-index: 1;
@@ -187,6 +172,7 @@ main hr {
     cursor: pointer;
     margin-top: 30px;
     animation: fadeInUp 1.6s ease forwards;
+    margin-bottom: 300px;
 }
 
 .btn:hover {
