@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-contact.css">
+    <title>Motor Co. Flashice RP - Contact</title>
+    <link rel="icon" href="/images/logoflashice.png">
+    <script src="https://kit.fontawesome.com/6ce492d5d4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hero">
+        <header>
+            <nav>
+                <ul>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="voitures.html">Nos Voitures</a></li>
+                    <li class="title">⎯⎯⎯⎯ Motor Co. ⎯⎯⎯⎯</li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
+                </ul>
+            </nav>
+
+            <div class="presentation">
+                <h1>Contact</h1>
+                <h2>⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</h2>
+                <button onclick="scrollToText()" class="btn">Nous contacter</button>
+                <div class="logo">
+                    <img src="/images/logoflashice.png" alt="logo flashicerp">
+                </div>
+            </div>
+            
+        </header>
+    </div>
+    <main id="go">
+        <h2 class="fade-up" style="font-size: 36px;">Nous contacter sur Discord <i class="fa-brands fa-discord"></i></h2>
+        <section class="mega-card-container fade-up">
+            <div class="mega-card">
+                <div class="mega-card-left">
+                    <div class="mega-logo">
+                        <img src="/images/logomotorco.jpg" alt="Motor Co Logo">
+                    </div>
+                </div>
+
+                <div class="mega-card-right">
+                    <h2 class="mega-title">❄️・Flashice ・ Motor Co.</h2>
+                    <p class="mega-subtitle">L'excellence automobile au service de la communauté.</p>
+                    
+                    <div class="mega-stats-grid">
+                        <div class="m-stat">
+                            <i class="fa-solid fa-users"></i>
+                            <div>
+                                <span class="m-count">Communauté</span>
+                                <p>active</p>
+                            </div>
+                        </div>
+                        <div class="m-stat">
+                            <i class="fa-solid fa-headset"></i>
+                            <div>
+                                <span class="m-count">24/7</span>
+                                <p>Support Technique</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mega-footer">
+                        <button class="btn-contact"><a href="">Nous contacter</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r</p>
+    </footer>
+    <script>
+        const elements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+
+        function scrollToText() {
+            document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

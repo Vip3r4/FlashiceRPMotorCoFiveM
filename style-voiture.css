@@ -2,6 +2,9 @@
 
 * {
     cursor: url("/images/cursor.png"), pointer;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -282,15 +285,15 @@ main hr {
     font-family: "Inter", sans-serif;
     font-size: 22px;
     color: #fff;
-    margin: 10px 0;
+    margin: 5px 0;
     text-transform: uppercase;
 }
 
 .price-tag {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 900;
     color: #ffffff;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .category-tag {
@@ -312,7 +315,7 @@ main hr {
     padding: 14px;
     border-radius: 12px;
     cursor: pointer;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 800;
     margin-top: auto;
     transition: 0.3s;
@@ -387,4 +390,99 @@ footer p {
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+    .catalog-container {
+        margin: 20px;
+    }
+
+    .cards-container2 {
+        gap: 20px;
+    }
+
+    .cards2 {
+        width: calc(50% - 20px);
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav li, nav li.title {
+        display: none;
+    }
+
+    nav li:has(a) {
+        display: block;
+        margin: 0;
+    }
+
+    .presentation h1 {
+        font-size: 35px;
+    }
+
+    .presentation h2 {
+        font-size: 18px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    #searchInput, #priceSort {
+        width: 100%;
+    }
+
+    .checkbox-group {
+        justify-content: flex-start;
+    }
+
+    .cards2 {
+        width: 100%;
+    }
+
+    .catalog-container {
+        border: none;
+        padding: 20px 0;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-pagination {
+        width: 100%;
+    }
+
+    .btn {
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .presentation h1 {
+        font-size: 28px;
+    }
+
+    .cards2 .img-container {
+        height: 180px;
+    }
+
+    .checkbox-group label {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
 }

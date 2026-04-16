@@ -480,3 +480,106 @@ footer p {
     transform: translateY(-10px);
   }
 }
+
+/* Responsive utilisateurs mobiles */
+
+@media screen and (max-width: 1100px) {
+    .cards-container, .cards-container2 {
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav li, nav li.title {
+        display: none;
+    }
+
+    nav li:has(a) {
+        display: block;
+        margin: 0;
+    }
+
+    .presentation {
+        margin: 20px;
+        padding: 30px 15px;
+        border-radius: 25px;
+    }
+
+    .presentation::before {
+        border-radius: 25px;
+    }
+
+    .presentation h1 {
+        font-size: 32px;
+    }
+
+    .presentation h2 {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 180px;
+    }
+
+    main {
+        padding-top: 50px;
+    }
+
+    main h2 {
+        font-size: 26px;
+        margin: 40px 10px;
+    }
+
+    .cards-container, .cards-container2 {
+        gap: 30px;
+        padding: 0 20px 60px 20px;
+    }
+
+    .cards, .cards2 {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        padding-bottom: 30px;
+    }
+
+    .cards h2 {
+        margin-top: 90px;
+        font-size: 20px;
+    }
+
+    .cards2 h2 {
+        font-size: 24px;
+    }
+
+    .cards2 p {
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
+
+    .neroimg img, .progenimg img, .turismoimg img {
+        max-width: 90%;
+    }
+
+    #best {
+        transform: translateY(0);
+    }
+    
+    #best:hover {
+        transform: scale(1.02);
+    }
+
+    footer p {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+}

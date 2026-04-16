@@ -270,6 +270,9 @@ main hr {
     border-radius: 50%;
     margin: 0 auto 20px auto;
     transition: 0.3s;
+    background-image: url("/images/olgajackpdp.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .member-card:hover .member-circle {
@@ -414,4 +417,112 @@ footer p {
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 1024px) {
+    .about-container, .stats-section {
+        max-width: 90%;
+    }
+
+    .cards-container, .stats-grid {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav li, nav li.title {
+        display: none;
+    }
+
+    nav li:has(a) {
+        display: block;
+        margin: 0;
+    }
+
+    .presentation {
+        margin: 20px;
+        padding: 30px 15px;
+        border-radius: 25px;
+    }
+
+    .presentation h1 {
+        font-size: 32px;
+    }
+
+    .presentation h2 {
+        font-size: 18px;
+    }
+
+    .logo img {
+        width: 180px;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .stats-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .stat-number {
+        font-size: 42px;
+    }
+
+    .member-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .member-card h3 {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .presentation h1 {
+        font-size: 26px;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .stats-title {
+        font-size: 24px;
+    }
 }

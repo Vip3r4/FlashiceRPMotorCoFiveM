@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Flashice Motor Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #ffffff;
+            --danger: #ff4d4d;
+            --success: #23a559;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .login-logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 2px solid white;
+            margin-bottom: 20px;
+        }
+
+        .login-wrapper h1 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+        .login-wrapper p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+
+        .admin-wrapper {
+            display: none;
+            width: 100%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+
+        .admin-content { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+
+        .form-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label {
+            display: block; color: var(--text-muted); font-size: 12px; margin-bottom: 5px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        input, select {
+            width: 100%; padding: 12px 15px; background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color); color: var(--text-main); border-radius: 8px;
+        }
+
+        .btn-submit {
+            width: 100%; padding: 15px; background: var(--accent); color: black; border: none;
+            border-radius: 10px; font-weight: 700; text-transform: uppercase; cursor: pointer; margin-top: 15px;
+        }
+
+        .list-container { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; }
+
+        .car-item {
+            display: flex; align-items: center; justify-content: space-between; padding: 15px;
+            background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 10px;
+        }
+
+        .car-info { display: flex; align-items: center; gap: 15px; }
+        .car-thumb { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color); }
+        .car-price { font-weight: 700; color: var(--success); font-size: 15px; }
+        
+        .btn-delete { background: transparent; color: var(--text-muted); border: none; cursor: pointer; font-size: 16px; }
+        .btn-delete:hover { color: var(--danger); transform: scale(1.2); }
+
+        #error-msg {
+            color: var(--danger); background: rgba(255, 77, 77, 0.1); border: 1px solid var(--danger);
+            padding: 10px; border-radius: 8px; font-size: 13px; margin-bottom: 20px; display: none;
+        }
+
+        @media (max-width: 900px) { .admin-content { grid-template-columns: 1fr; } .form-container { position: relative; } }
+    </style>
+</head>
+<body>
+
+    <div id="login-section" class="login-wrapper">
+        <div class="login-logo"><img src="/images/logoflashice.png" alt="Logo"></div>
+        <h1>Bienvenue, Boss</h1>
+        <p>Connecte-toi pour gérer le catalogue.</p>
+        <div id="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Identifiants incorrects</div>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Email (Firebase Auth)" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Mot de passe" required>
+        </div>
+        <button class="btn-submit" onclick="checkLogin()">Se connecter</button>
+    </div>
+
+    <div id="admin-section" class="admin-wrapper">
+        <div class="admin-header">
+            <h1>Tableau de bord</h1>
+            <button class="btn-logout" onclick="logout()"><i class="fa-solid fa-power-off"></i> Déconnexion</button>
+        </div>
+
+        <div class="admin-content">
+            <div class="form-container">
+                <h2><i class="fa-solid fa-plus-circle"></i> Ajouter un véhicule</h2>
+                <div class="input-group">
+                    <label>Marque</label>
+                    <input type="text" id="car-brand" placeholder="ex: Pegassi">
+                </div>
+                <div class="input-group">
+                    <label>Modèle</label>
+                    <input type="text" id="car-model" placeholder="ex: Zentorno">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="input-group">
+                        <label>Prix</label>
+                        <input type="text" id="car-price" placeholder="ex: 500,000$">
+                    </div>
+                    <div class="input-group">
+                        <label>Catégorie</label>
+                        <select id="car-type">
+                            <option value="Compact">Compact</option>
+                            <option value="Off-Road">Off-Road</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Super-Car">Super-Car</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Utile">Utile</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Lien de l'image</label>
+                    <input type="text" id="car-img" placeholder="URL ou images/nom.png">
+                </div>
+                <button class="btn-submit" onclick="addCar()">Mettre en ligne</button>
+            </div>
+
+            <div class="list-container">
+                <h2>Véhicules actuellement en stock</h2>
+                <div id="car-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiyLWOTR0GpDzIXAeOfyyDwuKeXmyAagA",
+            databaseURL: "https://flashice-motor-db-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const auth = firebase.auth();
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('admin-section').style.display = 'block';
+                document.body.style.alignItems = "flex-start";
+                loadCars();
+            } else {
+                document.getElementById('login-section').style.display = 'block';
+                document.getElementById('admin-section').style.display = 'none';
+                document.body.style.alignItems = "center";
+            }
+        });
+
+        function checkLogin() {
+            const email = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            auth.signInWithEmailAndPassword(email, pass).catch(err => {
+                document.getElementById('error-msg').style.display = 'block';
+            });
+        }
+
+        function logout() { auth.signOut(); }
+
+        function addCar() {
+            const data = {
+                brand: document.getElementById('car-brand').value,
+                model: document.getElementById('car-model').value,
+                price: document.getElementById('car-price').value,
+                type: document.getElementById('car-type').value,
+                img: document.getElementById('car-img').value
+            };
+            if(data.brand && data.model) {
+                db.ref('voitures').push(data).then(() => {
+                    alert("Véhicule ajouté !");
+                    ["car-brand", "car-model", "car-price", "car-img"].forEach(id => document.getElementById(id).value = "");
+                });
+            }
+        }
+
+        function loadCars() {
+            db.ref('voitures').on('value', snap => {
+                const list = document.getElementById('car-list');
+                list.innerHTML = "";
+                snap.forEach(child => {
+                    const c = child.val();
+                    list.innerHTML += `
+                        <div class="car-item">
+                            <div class="car-info">
+                                <img src="${c.img}" class="car-thumb" onerror="this.src='https://via.placeholder.com/50'">
+                                <div class="car-details">
+                                    <h4>${c.brand} ${c.model}</h4>
+                                    <span>${c.type}</span>
+                                </div>
+                            </div>
+                            <div class="car-meta">
+                                <span class="car-price">${c.price}</span>
+                                <button class="btn-delete" onclick="deleteCar('${child.key}')"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>`;
+                });
+            });
+        }
+
+        function deleteCar(id) { if(confirm("Supprimer ?")) db.ref('voitures/'+id).remove(); }
+    </script>
+</body>
+</html>

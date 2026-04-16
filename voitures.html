@@ -22,13 +22,11 @@
                     <li>⎯⎯⎯⎯⎯⎯⎯⎯</li>
                 </ul>
             </nav>
-
             <div class="presentation">
                 <h1>Nos Voitures</h1>
                 <h2>Retrouvez ici notre catalogue de véhicules présents à la vente</h2>
                 <button onclick="scrollToText()" class="btn">Consulter</button>
             </div>
-            
         </header>
     </div>
     <main>
@@ -65,7 +63,12 @@
     <footer>
         <p>© 2026 Flashice ・ Motor Co. - Tous droits réservés. | Made by Vip3r</p>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
     <script src="catalogue.js"></script>
+
     <script>
         function scrollToText() {
             document.getElementById('go').scrollIntoView({ behavior: 'smooth' });
