@@ -207,8 +207,8 @@
 
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyCiyLWOTR0GpDzIXAeOfyyDwuKeXmyAagA",
-            databaseURL: "https://flashice-motor-db-default-rtdb.europe-west1.firebasedatabase.app/"
+            apiKey: process.env.apiKey,
+            databaseURL: process.env.DB_URL
         };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
