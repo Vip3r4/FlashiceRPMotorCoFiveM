@@ -56,7 +56,7 @@ function render() {
             <div class="category-tag">${car.type}</div>
             <h2>${car.brand} ${car.model}</h2>
             <div class="price-tag">${car.price}</div>
-            <button><a href="contact.html">Détails</a></button>
+            <button><a href="https://discord.gg/qf2jkFFWmZ">Détails</a></button>
         `;
         grid.appendChild(div);
     });
